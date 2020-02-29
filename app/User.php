@@ -11,7 +11,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
-    protected $primaryKey = "iduser";
+    protected $primaryKey = "id_user";
 
     public $timestamps = false;
 
@@ -21,8 +21,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'iduser', 'idrol', 'name', 'surname', 'idnumber', 
-        'password', 'email', 'charge', 'avatar', 'state'
+        'id_user', 'name', 'password', 'email','type_user','lastname','phone','picture'
     ];
 
     /**
@@ -39,9 +38,9 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $casts = [
+    /*protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ];*/
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

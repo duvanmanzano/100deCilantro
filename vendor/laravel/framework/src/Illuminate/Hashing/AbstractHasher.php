@@ -28,7 +28,7 @@ abstract class AbstractHasher
         if (strlen($hashedValue) === 0) {
             return false;
         }
-
+       
         return password_verify($value, $hashedValue);
     }
 }
