@@ -42,9 +42,6 @@ class AuthController extends Controller
 
     public function signin(Request $request)
     {
-        // return response()->json([
-        //     'user' => $request
-        // ]);
         $data = $request->all();
         User::create($data);
         return $this->login($request);
