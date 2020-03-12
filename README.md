@@ -29,7 +29,7 @@ Roles de usuario:
 ![Tecnologias](./public/img/Tecnologias.PNG)
 
 # Back-end
-Esta sección refleja el back-end del proyecto, son un grupo de Controladores a las que son accedidas por medio de las rutas de la api.
+Esta sección refleja el back-end del proyecto, en el se encuentran un grupo de controladores a los que son accedidos por medio de las rutas de la api, modelos que son usados por los controladores y la configuración del JWT.
 
 ## Json Web Tockens
 Los Json Web Token (JWT) nos permite crear un método de auteticación en servicios API para que nuestra conexión entre el cliente y nuestro back-end sea segura. 
@@ -57,6 +57,10 @@ Implementando los metodos getJWTIdentifier() y getJWTCustomClaims().
 
 ![Tecnologias](./public/img/JWTUser.PNG)
 
+Por ultimo, para que laravel utilice como metodo de autenticación el JWT se debe modificar el archivo auth de la siguiente forma ubicado en ./config/auth.php
+
+![Tecnologias](./public/img/Auth.jpeg)
+
 ## Rutas
 Las rutas son las encargadas de manejar el flujo de solicitudes. En estas se especifica el verbo HTTP a usar, el controlador al que va a entrar y el metodo al va a apuntar.
 
@@ -73,11 +77,6 @@ Por ejemplo el caso de la ruta 'getMovie' que apunta al controlador 'MovieContro
 
 Cuando la petición entra al controlador se inicializa el constructor, este verifica si el JWT esta vigente, si lo esta, continua hacia el metodo que indica la ruta, de lo contrario generará un 401 (Unauthorized).
 
-Para que laravel utilice como metodo de autenticación el JWT se debe modificar el archivo auth de la siguiente forma ubicado en ./config/auth.php
-
-
-![Tecnologias](./public/img/Auth.jpeg)
-
 # Front-end
 ## Requisitos
 - Vue.cli
@@ -85,4 +84,7 @@ Para que laravel utilice como metodo de autenticación el JWT se debe modificar 
 ```
 npm install -g @vue/cli
 ```
-
+## Autores
+- Jhorman Duvan Vacca Manzano
+- Sebastian Ayala Suarez
+- Jose Luis Nova Arguello
