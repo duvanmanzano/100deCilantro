@@ -53,11 +53,11 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 ```
 Implementando los metodos getJWTIdentifier() y getJWTCustomClaims().
 
-![Tecnologias](./public/img/JWTUser.PNG)
+![JWTUser](./public/img/JWTUser.PNG)
 
 Por ultimo, para que laravel utilice como metodo de autenticación el JWT se debe modificar el archivo auth de la siguiente forma ubicado en ./config/auth.php
 
-![Tecnologias](./public/img/Auth.jpeg)
+![Auth](./public/img/Auth.jpeg)
 
 ## Rutas
 Las rutas son las encargadas de manejar el flujo de solicitudes. En estas se especifica el verbo HTTP a usar, el controlador al que va a entrar y el metodo al va a apuntar.
@@ -76,7 +76,8 @@ Por ejemplo el caso de la ruta 'getMovie' que apunta al controlador 'MovieContro
 Cuando se recibe la petición según la ruta y el método HTTP respectivo, se instancia el controlador el cual, en su constructor, valida que el token esté vigente para responder según sea el caso.
 
 # Front-end
-![Tecnologias](./public/img/Vue.png)
+![Vue](./public/img/vue.png)
+Vue es un framework open source de JavaScript, el cual nos permite construir interfaces de usuarios de una forma muy sencilla. Se trabaja por medio de componentes. Un componente Vue, en términos simples, es un elemento el cual se encapsula código reutilizable, dentro de un componente podremos encontrar etiquetas HTML, estilos de CSS y código JavaScript.
 
 ## Requisitos
 - Node.js
@@ -89,7 +90,7 @@ $ vue add vuetify
 $ npm install axios
 ```
 ## Peticiones Front-end
-![Tecnologias](./public/img/axios.png)
+![Axios](./public/img/axios.png)
 
 Es un cliente HTTP basado en Promesas para Javascript, el cual puede ser utilizado en el Front-end, como en el Back-end por medio de Nodejs. Utilizando Axios, es muy sencillo enviar peticiones a endpoints REST y realizar operaciones CRUD. 
 - Petición Post
@@ -97,8 +98,9 @@ Es un cliente HTTP basado en Promesas para Javascript, el cual puede ser utiliza
 - Peticion Get
     - axios.get(url, params)
 
-![Tecnologias](./public/img/axiosPeticion.png)
+![AxiosPeticion](./public/img/axiosPeticion.PNG)
 Axios en cada petición nos devuelve una promesa, la cual debemos manipular haciendo uso de los métodos .then/.catch para capturar la respuesta y los errores respectivamente.
+
 ## Autores
 - Jhorman Duvan Vacca Manzano
 - Sebastian Ayala Suarez
