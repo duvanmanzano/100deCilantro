@@ -1,7 +1,6 @@
 # 100deCilantro 
 ## TicketSoft - Microservicios
 
-
 # Requisitos
 - Xampp o Wamp
 - PHP
@@ -9,10 +8,9 @@
 - Composer
 - Mysql
 
-
 Este es el proyecto de una aplicacion web para la reserva de tickets.
 
-Roles de usuario:
+## Roles de usuario:
 - Administrador.
     - Gestiona toda la informacion relacionada con las peliculas, los horarios y la cantidad disponible de las mismas.
 - Cliente
@@ -32,13 +30,13 @@ Roles de usuario:
 Esta sección refleja el back-end del proyecto, en el se encuentran un grupo de controladores a los que son accedidos por medio de las rutas de la api, modelos que son usados por los controladores y la configuración del JWT.
 
 ## Json Web Tockens
-Los Json Web Token (JWT) nos permite crear un método de auteticación en servicios API para que nuestra conexión entre el cliente y nuestro back-end sea segura. 
+Los Json Web Tokens (JWT) nos permite crear un método de auteticación en servicios API para que nuestra conexión entre el cliente y nuestro back-end sea segura. 
 
 Funciona de una forma sencilla, el cliente envía su usuario y contraseña, la API le retorna un token que enviará en todas las peticiones, para que ésta compruebe que tiene acceso a las acciones que se quieran realizar.
 
 Instalando la libreria de JWT en laravel:
 ```
-composer require tymon/jwt-auth:dev-develop --prefer-source
+$ composer require tymon/jwt-auth:dev-develop --prefer-source
 ```
 Generando el archivo de configuración:
 ```
@@ -75,15 +73,32 @@ Por ejemplo el caso de la ruta 'getMovie' que apunta al controlador 'MovieContro
 
 ![Tecnologias](./public/img/Controller.PNG)
 
-Cuando la petición entra al controlador se inicializa el constructor, este verifica si el JWT esta vigente, si lo esta, continua hacia el metodo que indica la ruta, de lo contrario generará un 401 (Unauthorized).
+Cuando se recibe la petición según la ruta y el método HTTP respectivo, se instancia el controlador el cual, en su constructor, valida que el token esté vigente para responder según sea el caso.
 
 # Front-end
+![Tecnologias](./public/img/Vue.png)
+
 ## Requisitos
+- Node.js
 - Vue.cli
-- 
+- Vuetify
+- Axios
 ```
-npm install -g @vue/cli
+$ npm install -g @vue/cli
+$ vue add vuetify
+$ npm install axios
 ```
+## Peticiones Front-end
+![Tecnologias](./public/img/axios.png)
+
+Es un cliente HTTP basado en Promesas para Javascript, el cual puede ser utilizado en el Front-end, como en el Back-end por medio de Nodejs. Utilizando Axios, es muy sencillo enviar peticiones a endpoints REST y realizar operaciones CRUD. 
+- Petición Post
+    - axios.post(url, params)
+- Peticion Get
+    - axios.get(url, params)
+
+![Tecnologias](./public/img/axiosPeticion.png)
+Axios en cada petición nos devuelve una promesa, la cual debemos manipular haciendo uso de los métodos .then/.catch para capturar la respuesta y los errores respectivamente.
 ## Autores
 - Jhorman Duvan Vacca Manzano
 - Sebastian Ayala Suarez
