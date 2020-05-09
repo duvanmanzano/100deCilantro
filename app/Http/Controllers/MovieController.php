@@ -20,13 +20,7 @@ class MovieController extends Controller
      * @return void
      */
     public function __construct()
-    {
-        $this->middleware('auth:api', [
-            'except' => [
-                'login','signin','test'
-            ]
-        ]);
-    }
+    {}
 
     /**
      * Display a listing of the resource.
@@ -36,9 +30,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return response()->json([
-            'movies' => $movies
-        ]);
+        return $movies;
     }
 
     /**
