@@ -20,6 +20,7 @@ Route::group([
     Route::post('signin', 'AuthController@signin');
     Route::post('login', 'AuthController@login');
     Route::get('getMovie', 'MovieController@index');    
+    Route::get('getDataMovie/{id_movie}', 'MovieController@getDataMovie');    
     Route::post('storeMovie', 'MovieController@store');
     Route::get('test', 'AuthController@test');    
 });

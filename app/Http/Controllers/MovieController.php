@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Schedule;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
@@ -29,8 +30,40 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
-        return $movies;
+        try{
+            $movies = Movie::select('movies.*',DB::Raw('TRUNCATE(AVG(appreciation.value),1) as appreciation'))
+            ->from('movies')
+            ->join('appreciation','appreciation.id_movie','=','movies.id_movies')
+            ->groupBy(DB::Raw('movies.id_movies,movies.name,movies.picture,movies.max_num,movies.price'))
+            ->get();
+
+            return $movies;
+        }catch (Exception $e) {
+            return $e;
+        }
+    }
+
+    /**
+     * Display a information the movie
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getDataMovie($id_movie)
+    {
+        try{
+
+            $Schedule = Schedule::select(DB::Raw('schedule.*, COUNT(tickets.id_schedule) as sold, (movies.max_num- COUNT(tickets.id_schedule) ) as available'))
+            ->from('schedule')
+            ->leftjoin('tickets','schedule.id_schedule','=','tickets.id_schedule')
+            ->leftjoin('movies','schedule.id_movies','=','movies.id_movies')
+            ->where('schedule.id_movies',$id_movie)
+            ->groupBy(DB::Raw('schedule.id_schedule'))
+            ->get();
+
+            return $Schedule;
+        }catch (Exception $e) {
+            return $e;
+        }
     }
 
     /**
