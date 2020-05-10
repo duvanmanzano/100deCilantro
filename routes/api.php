@@ -19,6 +19,7 @@ Route::group([
 ], function ($router) {
     Route::post('signin', 'AuthController@signin');
     Route::post('login', 'AuthController@login');
+    Route::get('allUSers', 'AuthController@allUSers');    
     Route::get('getMovie', 'MovieController@index');    
     Route::get('getDataMovie/{id_movie}', 'MovieController@getDataMovie');    
     Route::post('storeMovie', 'MovieController@store');

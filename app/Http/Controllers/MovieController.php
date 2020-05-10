@@ -31,7 +31,7 @@ class MovieController extends Controller
     public function index()
     {
         try{
-            $movies = Movie::select('movies.*',DB::Raw('TRUNCATE(AVG(appreciation.value),1) as appreciation'))
+            $movies = Movie::select('movies.*', DB::Raw('TRUNCATE(AVG(appreciation.value),1) as appreciation'), DB::Raw(' (0) as show_vue'))
             ->from('movies')
             ->join('appreciation','appreciation.id_movie','=','movies.id_movies')
             ->groupBy(DB::Raw('movies.id_movies,movies.name,movies.picture,movies.max_num,movies.price'))
@@ -39,7 +39,7 @@ class MovieController extends Controller
 
             return $movies;
         }catch (Exception $e) {
-            return $e;
+            return $e->getMessage();
         }
     }
 

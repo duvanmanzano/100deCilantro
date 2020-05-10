@@ -20,7 +20,7 @@ class AuthController extends Controller
     {
         $this->middleware('auth:api', [
             'except' => [
-                'login','signin','test'
+                'login','signin','test','allUSers'
             ]
         ]);
     }
@@ -45,6 +45,16 @@ class AuthController extends Controller
         $data = $request->all();
         User::create($data);
         return $this->login($request);
+    }
+
+    public function allUSers()
+    {
+        try{            
+            $data =  User::all();
+            return $data ;
+        }catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /*public function user($id)
