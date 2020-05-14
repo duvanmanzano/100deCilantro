@@ -1,0 +1,20 @@
+/*Estilos a etiquetas directas*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geogrotesque';
+    font-weight: 900;
+}
+
+/*Estilos a clases generales*/
+
+.alert span:not(.v-btn__content) {
+    color: #211e32;
+    font-family: 'Geogrotesque';
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.full-width {
+    width: 100%!important;
+}
