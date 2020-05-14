@@ -32,19 +32,27 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(['email', 'password']);
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+        try{
+            $credentials = request(['email', 'password']);
+            if (!$token = auth()->attempt($credentials)) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
 
-        return $this->respondWithToken($token);
+            return $this->respondWithToken($token);
+        }catch (Exception $e) {
+            response()->json(['message' => $e->getMessage()]);
+        }
     }
 
     public function signin(Request $request)
     {
-        $data = $request->all();
-        User::create($data);
-        return $this->login($request);
+        try{ 
+            $data = $request->all();
+            User::create($data);
+            return $this->login($request);
+        }catch (Exception $e) {
+            response()->json(['message' => $e->getMessage()]);
+        }
     }
 
     public function allUSers()
@@ -53,7 +61,7 @@ class AuthController extends Controller
             $data =  User::all();
             return $data ;
         }catch (Exception $e) {
-            return $e->getMessage();
+            response()->json(['message' => $e->getMessage()]);
         }
     }
 

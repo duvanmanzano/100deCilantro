@@ -14,14 +14,23 @@ use Illuminate\Http\Request;
 */
 Route::group([
 
-    'middleware' => 'api'
+    'middleware' => 'auth:api'
 
 ], function ($router) {
+    Route::get('allUSers', 'AuthController@allUSers');       
+    Route::post('storeMovie', 'MovieController@store');
+    Route::post('storeReserve', 'ReserveController@store');
+    Route::get('test', 'AuthController@test');    
+});
+
+
+Route::group([
+
+    'middleware' => 'api'
+
+], function ($router) {    
     Route::post('signin', 'AuthController@signin');
     Route::post('login', 'AuthController@login');
-    Route::get('allUSers', 'AuthController@allUSers');    
     Route::get('getMovie', 'MovieController@index');    
-    Route::get('getDataMovie/{id_movie}', 'MovieController@getDataMovie');    
-    Route::post('storeMovie', 'MovieController@store');
-    Route::get('test', 'AuthController@test');    
+    Route::get('getDataMovie/{id_movie}', 'MovieController@getDataMovie'); 
 });

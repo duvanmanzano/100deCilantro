@@ -2,27 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Movie;
-use App\Schedule;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
-use App\User;
+use Illuminate\Http\Request;
+use App\Movie;
+use App\Schedule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class MovieController extends Controller
 {
-
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {}
-
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +29,7 @@ class MovieController extends Controller
 
             return $movies;
         }catch (Exception $e) {
-            return $e->getMessage();
+            return response()->json(['message' => $e->getMessage()]);
         }
     }
 
@@ -62,7 +52,7 @@ class MovieController extends Controller
 
             return $Schedule;
         }catch (Exception $e) {
-            return $e;
+            return response()->json(['message' => $e->getMessage()]);
         }
     }
 
@@ -84,10 +74,38 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        if(Movie::create($request->all())){
+        try{
+
+            //dd('si');
+            //obtenemos el campo file definido en el formulario
+            $file = $request->file('picture');
+    
+            //obtenemos el nombre del archivo
+            $nombre = $file->getClientOriginalName();
+    
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+
+            $data= $request->all();
+            $data['picture']='/storage/'.$file->getClientOriginalName();
+            $schedules=$data['schedules'];
+            
+
+            unset($data['schedules']);
+
+            $movie=Movie::create($data);
+
+            foreach($schedules as $schedule){
+                Schedule::create(['id_movies'=>$movie->id_movies,'schedule'=>$schedule]);
+            }
+            
             return response()->json(['message' => 'Successfully']);
-        }else{
-            return response()->json(['message' => 'Erroro']);
+           
+                
+                
+        }catch (Exception $e) {
+            dd($e);
+            return response()->json(['message' => $e->getMessage()]);
         }
     }
 
