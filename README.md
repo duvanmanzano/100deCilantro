@@ -1,5 +1,9 @@
-
 ## TicketSoft - Microservicios
+
+## Autores
+- Jhorman Duvan Vacca Manzano
+- Sebastian Ayala Suarez
+- Jose Luis Nova Arguello
 
 # Requisitos
 - Xampp o Wamp
@@ -26,10 +30,13 @@ Este es el proyecto de una aplicacion web para la reserva de tickets.
 
 ![Tecnologias](./public/img/Tecnologias.PNG)
 
+# Base de datos
+![Base de datos](./public/img/BaseDeDatos.PNG)
+
 # Back-end
 Esta sección refleja el back-end del proyecto, en el se encuentran un grupo de controladores a los que son accedidos por medio de las rutas de la api, modelos que son usados por los controladores y la configuración del JWT.
 
-## Json Web Tockens
+## Json Web Tokens
 Los Json Web Tokens (JWT) nos permite crear un método de auteticación en servicios API para que nuestra conexión entre el cliente y nuestro back-end sea segura. 
 
 Funciona de una forma sencilla, el cliente envía su usuario y contraseña, la API le retorna un token que enviará en todas las peticiones, para que ésta compruebe que tiene acceso a las acciones que se quieran realizar.
@@ -100,8 +107,3 @@ Es un cliente HTTP basado en Promesas para Javascript, el cual puede ser utiliza
 
 ![AxiosPeticion](./public/img/axiosPeticion.PNG)
 Axios en cada petición nos devuelve una promesa, la cual debemos manipular haciendo uso de los métodos .then/.catch para capturar la respuesta y los errores respectivamente.
-
-## Autores
-- Jhorman Duvan Vacca Manzano
-- Sebastian Ayala Suarez
-- Jose Luis Nova Arguello
