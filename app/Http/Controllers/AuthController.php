@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
 use App\User;
+use App\Movie;
+use App\Schedule;
+use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +23,7 @@ class AuthController extends Controller
     {
         $this->middleware('auth:api', [
             'except' => [
-                'login','signin','test','allUSers'
+                'login','signin','test','allUSers','storeAppreciation'
             ]
         ]);
     }
@@ -39,7 +42,7 @@ class AuthController extends Controller
             }
 
             return $this->respondWithToken($token);
-        }catch (Exception $e) {
+        }catch (\Exception $e) {
             response()->json(['message' => $e->getMessage()]);
         }
     }
@@ -50,7 +53,7 @@ class AuthController extends Controller
             $data = $request->all();
             User::create($data);
             return $this->login($request);
-        }catch (Exception $e) {
+        }catch (\Exception $e) {
             response()->json(['message' => $e->getMessage()]);
         }
     }
@@ -60,11 +63,12 @@ class AuthController extends Controller
         try{            
             $data =  User::all();
             return $data ;
-        }catch (Exception $e) {
+        }catch (\Exception $e) {
             response()->json(['message' => $e->getMessage()]);
         }
     }
 
+   
     /*public function user($id)
     {
         return response()->json([

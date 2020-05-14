@@ -8,11 +8,26 @@ use App\Http\Requests\SignUpRequest;
 use Illuminate\Http\Request;
 use App\Movie;
 use App\Schedule;
+use App\Appreciation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class MovieController extends Controller
 {
+
+    public function storeAppreciation(Request $request)
+    {
+        try{ 
+            if(Appreciation::create($request->all())){
+                return response()->json(['message' => 'Successfully']);
+            }else{
+                return response()->json(['message' => 'Error']);
+            }
+        }catch (\Exception $e) {
+            response()->json(['message' => $e->getMessage()]);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +38,7 @@ class MovieController extends Controller
         try{
             $movies = Movie::select('movies.*', DB::Raw('TRUNCATE(AVG(appreciation.value),1) as appreciation'), DB::Raw(' (0) as show_vue'))
             ->from('movies')
-            ->join('appreciation','appreciation.id_movie','=','movies.id_movies')
+            ->leftjoin('appreciation','appreciation.id_movie','=','movies.id_movies')
             ->groupBy(DB::Raw('movies.id_movies,movies.name,movies.picture,movies.max_num,movies.price'))
             ->get();
 
@@ -103,8 +118,7 @@ class MovieController extends Controller
            
                 
                 
-        }catch (Exception $e) {
-            dd($e);
+        }catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()]);
         }
     }
