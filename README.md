@@ -27,6 +27,7 @@ Este es el proyecto de una aplicacion web para la reserva de tickets.
 - Laravel
 - Vue
 - Mysql
+- Docker
 
 ![Tecnologias](./public/img/Tecnologias2.PNG)
 
