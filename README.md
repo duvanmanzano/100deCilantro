@@ -20,7 +20,7 @@ Este es el proyecto de una aplicacion web para la reserva de tickets.
 - Cliente
     - Tiene la posibilidad de reservar tickets para la peliculas que desee y posterior a esto podra puntuar dichas peliculas.
 
-![Estructura del proyecto](./public/img/EstructuraProyecto.PNG)
+![Estructura del proyecto](./public/img/EstructuraProyecto2.PNG)
 
 # Tecnologías
 
@@ -28,7 +28,7 @@ Este es el proyecto de una aplicacion web para la reserva de tickets.
 - Vue
 - Mysql
 
-![Tecnologias](./public/img/Tecnologias.PNG)
+![Tecnologias](./public/img/Tecnologias2.PNG)
 
 # Base de datos
 ![Base de datos](./public/img/BaseDeDatos.PNG)
