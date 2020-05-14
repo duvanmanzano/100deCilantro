@@ -8,7 +8,7 @@ services:
       context: ./
       dockerfile: development/app.dockerfile
     volumes:
-      - ./storage:/var/www/storage
+      - ./storage:/var/www/backend/storage
     env_file: '.env.prod'
     environment:
       - "DB_HOST=database"
@@ -24,6 +24,7 @@ services:
       - ./storage/logs/:/var/log/nginx
     ports:
       - 8990:80
+      - 8992:82
 
   # Contenedor de MySQL
   database:
