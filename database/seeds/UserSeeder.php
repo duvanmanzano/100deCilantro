@@ -56,42 +56,42 @@ class UserSeeder extends Seeder
                 "picture"=> "avengers",
                 "max_num"=> 20,
                 "price"=> 10000,
-                "picture" => '/storage/1.jpg'
+                "picture" => '/img/1.jpg'
             ],
             [
                 "name"=> "Bumblebee",
                 "picture"=> "bumblebee",
                 "max_num"=> 10,
                 "price"=> 10000,
-                "picture" => '/storage/2.jpg'
+                "picture" => '/img/2.jpg'
             ],
             [
                 "name"=> "El Irlandés",
                 "picture"=> "irlandes",
                 "max_num"=> 15,
                 "price"=> 8000,
-                "picture" => '/storage/3.jpg'
+                "picture" => '/img/3.jpg'
             ],
             [
                 "name"=> "Aves de Presa",
                 "picture"=> "avespresa",
                 "max_num"=> 18,
                 "price"=> 9000,
-                "picture" => '/storage/4.jpg'
+                "picture" => '/img/4.jpg'
             ],
             [
                 "name"=> "Bad Boys II",
                 "picture"=> "badboys",
                 "max_num"=> 25,
                 "price"=> 12000,
-                "picture" => '/storage/5.jpg'
+                "picture" => '/img/5.jpg'
             ],
             [
                 "name"=> "Sonic",
                 "picture"=> "sonic",
                 "max_num"=> 20,
                 "price"=> 10000,
-                "picture" => '/storage/6.jpg'
+                "picture" => '/img/6.jpg'
             ]
             ];
         foreach($movies as $movie){
