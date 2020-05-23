@@ -22,8 +22,8 @@ class UserSeeder extends Seeder
                  "lastname"=> "Vacca Manzano",
                  "email"=> "duvanmanzano@gmail.com",
                  "phone"=> "30145236589",
-                 "picture"=> "jvaccaman.png",
-                 "password"=> '$2y$10$mQUaEL0V1qJl1wUmBYwwJOydFLokM398L3CupGmfEWto4eiDBbdG.'
+                 "picture"=> "1.png",
+                 "password"=> '0000'
              ],
              [
                  "type_user"=> 2,
@@ -31,8 +31,8 @@ class UserSeeder extends Seeder
                  "lastname"=> "Ayala Suarez",
                  "email"=> "sebasayala@gmail.com",
                  "phone"=> "3124578596",
-                 "picture"=> "sayalasua.png",
-                 "password"=> '$2y$10$mQUaEL0V1qJl1wUmBYwwJOydFLokM398L3CupGmfEWto4eiDBbdG.'
+                 "picture"=> "1.png",
+                 "password"=> '0000'
              ],
              [
                  "type_user"=> 2,
@@ -40,8 +40,8 @@ class UserSeeder extends Seeder
                  "lastname"=> "Nova Arguello",
                  "email"=> "josenova@gmail.com",
                  "phone"=> "3058967412",
-                 "picture"=> "jnovaarg.png",
-                 "password"=> '$2y$10$mQUaEL0V1qJl1wUmBYwwJOydFLokM398L3CupGmfEWto4eiDBbdG.'
+                 "picture"=> "1.png",
+                 "password"=> '0000'
              ]
          ];
          
@@ -55,37 +55,43 @@ class UserSeeder extends Seeder
                 "name" => "Avengers End-Game",
                 "picture"=> "avengers",
                 "max_num"=> 20,
-                "price"=> 10000
+                "price"=> 10000,
+                "picture" => '/storage/1.jpg'
             ],
             [
                 "name"=> "Bumblebee",
                 "picture"=> "bumblebee",
                 "max_num"=> 10,
-                "price"=> 10000
+                "price"=> 10000,
+                "picture" => '/storage/2.jpg'
             ],
             [
                 "name"=> "El Irlandés",
                 "picture"=> "irlandes",
                 "max_num"=> 15,
-                "price"=> 8000
+                "price"=> 8000,
+                "picture" => '/storage/3.jpg'
             ],
             [
                 "name"=> "Aves de Presa",
                 "picture"=> "avespresa",
                 "max_num"=> 18,
-                "price"=> 9000
+                "price"=> 9000,
+                "picture" => '/storage/4.jpg'
             ],
             [
                 "name"=> "Bad Boys II",
                 "picture"=> "badboys",
                 "max_num"=> 25,
-                "price"=> 12000
+                "price"=> 12000,
+                "picture" => '/storage/5.jpg'
             ],
             [
                 "name"=> "Sonic",
                 "picture"=> "sonic",
                 "max_num"=> 20,
-                "price"=> 10000
+                "price"=> 10000,
+                "picture" => '/storage/6.jpg'
             ]
             ];
         foreach($movies as $movie){
@@ -100,7 +106,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "id_movies"=> 1,
-                "schedule"=> "06:45 PM"
+                "schedule"=> "06:00 PM"
             ],
             [
                 "id_movies"=> 2,
@@ -124,7 +130,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "id_movies"=> 4,
-                "schedule"=> "08:45 PM"
+                "schedule"=> "08:00 PM"
             ],
             [
                 "id_movies"=> 5,
