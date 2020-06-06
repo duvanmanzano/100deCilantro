@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticket;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ReserveController extends Controller
 {
@@ -15,9 +17,16 @@ class ReserveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $bookings = DB::table('tickets')
+            ->join('movies', 'tickets.id_movie', '=', 'movies.id_movies')
+            ->join('schedule', 'tickets.id_schedule', '=', 'schedule.id_schedule')
+            ->select('movies.*', 'schedule.schedule', DB::Raw(' (0) as show_vue'))
+            ->where('tickets.id_user', $request->user)
+            ->orderBy('tickets.created_at', 'desc')
+            ->get();
+        return $bookings;
     }
 
     /**
@@ -39,14 +48,12 @@ class ReserveController extends Controller
     public function store(Request $request)
     {
         try{
-            //dd($request->all());
-            if(Ticket::create($request->all())){
-                return response()->json(['message' => 'Successfully']);
-            }else{
-                return response()->json(['message' => 'Error']);
-            }
-                
-                
+            $booking = new Ticket();
+            $booking->fill($request->all());
+            $booking->created_at = Carbon::now();
+            $booking->updated_at = Carbon::now();
+            $booking->save();
+            return response()->json(['message' => 'Successfully']); 
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()]);
         }

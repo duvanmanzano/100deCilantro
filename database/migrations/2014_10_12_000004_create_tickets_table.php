@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
             $table->unsignedBigInteger('id_movie');
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_schedule');
+            $table->timestamps();
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->foreign('id_movie')->references('id_movies')->on('movies');
             $table->foreign('id_schedule')->references('id_schedule')->on('schedule');

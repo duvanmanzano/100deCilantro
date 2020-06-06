@@ -11,6 +11,7 @@ use App\Schedule;
 use App\Appreciation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class MovieController extends Controller
 {
@@ -40,6 +41,7 @@ class MovieController extends Controller
             ->from('movies')
             ->leftjoin('appreciation','appreciation.id_movie','=','movies.id_movies')
             ->groupBy(DB::Raw('movies.id_movies,movies.name,movies.picture,movies.max_num,movies.price'))
+            ->orderBy('movies.created_at', 'desc')
             ->get();
 
             return $movies;
@@ -101,17 +103,21 @@ class MovieController extends Controller
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($nombre,  \File::get($file));
 
-            $data= $request->all();
-            $data['picture']='/storage/'.$file->getClientOriginalName();
-            $schedules=$data['schedules'];
+            $movie = new Movie();
+            $movie->fill($request->all());
+            $movie->picture = '/storage/' . $file->getClientOriginalName();
+            $movie->created_at = Carbon::now();
+            $movie->updated_at = Carbon::now();
+            $movie->save();
             
-
-            unset($data['schedules']);
-
-            $movie=Movie::create($data);
-
+            $schedules = $request->schedules;
             foreach($schedules as $schedule){
-                Schedule::create(['id_movies'=>$movie->id_movies,'schedule'=>$schedule]);
+                Schedule::create(
+                    [
+                        'id_movies' => $movie->id_movies,
+                        'schedule'  => $schedule
+                    ]
+                );
             }
             
             return response()->json(['message' => 'Successfully']);

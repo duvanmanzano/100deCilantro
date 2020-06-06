@@ -12,6 +12,6 @@ class Movie extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_movies', 'name', 'picture', 'max_num', 'price'
+        'id_movies', 'name', 'picture', 'max_num', 'price', 'created_at'
     ];
 }

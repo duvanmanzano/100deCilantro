@@ -23,7 +23,7 @@ class AuthController extends Controller
     {
         $this->middleware('auth:api', [
             'except' => [
-                'login','signin','test','allUSers','storeAppreciation'
+                'login','signin','test','allUSers','storeAppreciation', 'validateMail'
             ]
         ]);
     }
@@ -60,7 +60,7 @@ class AuthController extends Controller
 
     public function allUSers()
     {
-        try{            
+        try{
             $data =  User::all();
             return $data ;
         }catch (\Exception $e) {
@@ -133,5 +133,10 @@ class AuthController extends Controller
             'helou' => 'friend',
             'view' => view('welcome')->render()
         ]);
+    }
+
+    public function validateMail($email) {
+        $mail = DB::table('users')->where('email', $email)->count();
+        return $mail;
     }
 }
