@@ -5,6 +5,7 @@ use App\User;
 use App\Movie;
 use App\Schedule;
 use App\Ticket;
+use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -15,33 +16,43 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $now = Carbon::now();
         $users=[
             [
                  "type_user"=> 1,
                  "name"=> "Jhorman Duvan",
                  "lastname"=> "Vacca Manzano",
-                 "email"=> "duvanmanzano@gmail.com",
+                 "email"=> "jvacca@gmail.com",
                  "phone"=> "30145236589",
-                 "picture"=> "jvaccaman.png",
-                 "password"=> '$2y$10$mQUaEL0V1qJl1wUmBYwwJOydFLokM398L3CupGmfEWto4eiDBbdG.'
+                 "picture"=> "3.svg",
+                 "password"=> '0000'
              ],
              [
-                 "type_user"=> 2,
+                 "type_user"=> 1,
                  "name"=> "Sebastian",
                  "lastname"=> "Ayala Suarez",
-                 "email"=> "sebasayala@gmail.com",
+                 "email"=> "sayala@gmail.com",
                  "phone"=> "3124578596",
-                 "picture"=> "sayalasua.png",
-                 "password"=> '$2y$10$mQUaEL0V1qJl1wUmBYwwJOydFLokM398L3CupGmfEWto4eiDBbdG.'
+                 "picture"=> "1.svg",
+                 "password"=> '0000'
              ],
              [
                  "type_user"=> 2,
                  "name"=> "Jose Luis",
                  "lastname"=> "Nova Arguello",
-                 "email"=> "josenova@gmail.com",
+                 "email"=> "jnova@gmail.com",
                  "phone"=> "3058967412",
-                 "picture"=> "jnovaarg.png",
-                 "password"=> '$2y$10$mQUaEL0V1qJl1wUmBYwwJOydFLokM398L3CupGmfEWto4eiDBbdG.'
+                 "picture"=> "7.svg",
+                 "password"=> '0000'
+             ],
+             [
+                 "type_user"=> 2,
+                 "name"=> "Diego Armando",
+                 "lastname"=> "Maradona Pérez",
+                 "email"=> "dmaradona@gmail.com",
+                 "phone"=> "3201789656",
+                 "picture"=> "4.svg",
+                 "password"=> '0000'
              ]
          ];
          
@@ -53,41 +64,53 @@ class UserSeeder extends Seeder
          $movies =[
             [
                 "name" => "Avengers End-Game",
-                "picture"=> "avengers",
                 "max_num"=> 20,
-                "price"=> 10000
+                "price"=> 10000,
+                "picture" => '/img/1.jpg',
+                "created_at" => $now,
+                "updated_at" => $now
             ],
             [
                 "name"=> "Bumblebee",
-                "picture"=> "bumblebee",
                 "max_num"=> 10,
-                "price"=> 10000
+                "price"=> 10000,
+                "picture" => '/img/2.jpg',
+                "created_at" => $now,
+                "updated_at" => $now
             ],
             [
                 "name"=> "El Irlandés",
-                "picture"=> "irlandes",
                 "max_num"=> 15,
-                "price"=> 8000
+                "price"=> 8000,
+                "picture" => '/img/3.jpg',
+                "created_at" => $now,
+                "updated_at" => $now
             ],
             [
                 "name"=> "Aves de Presa",
-                "picture"=> "avespresa",
                 "max_num"=> 18,
-                "price"=> 9000
+                "price"=> 9000,
+                "picture" => '/img/4.jpg',
+                "created_at" => $now,
+                "updated_at" => $now
             ],
             [
                 "name"=> "Bad Boys II",
-                "picture"=> "badboys",
                 "max_num"=> 25,
-                "price"=> 12000
+                "price"=> 12000,
+                "picture" => '/img/5.jpg',
+                "created_at" => $now,
+                "updated_at" => $now
             ],
             [
                 "name"=> "Sonic",
-                "picture"=> "sonic",
                 "max_num"=> 20,
-                "price"=> 10000
+                "price"=> 10000,
+                "picture" => '/img/6.jpg',
+                "created_at" => $now,
+                "updated_at" => $now
             ]
-            ];
+        ];
         foreach($movies as $movie){
             Movie::create($movie);
         }
@@ -100,7 +123,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "id_movies"=> 1,
-                "schedule"=> "06:45 PM"
+                "schedule"=> "06:00 PM"
             ],
             [
                 "id_movies"=> 2,
@@ -124,7 +147,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "id_movies"=> 4,
-                "schedule"=> "08:45 PM"
+                "schedule"=> "08:00 PM"
             ],
             [
                 "id_movies"=> 5,

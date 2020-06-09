@@ -19,6 +19,7 @@ class CreateMoviesTable extends Migration
             $table->string('picture',45);
             $table->integer('max_num');
             $table->double('price',12,2);
+            $table->timestamps();
         });
     }
 

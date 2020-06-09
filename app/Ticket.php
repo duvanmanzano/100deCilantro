@@ -12,6 +12,6 @@ class Ticket extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_tickets', 'id_movie', 'id_user','id_schedule'
+        'id_tickets', 'id_movie', 'id_user','id_schedule', 'created_at'
     ];
 }
