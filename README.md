@@ -31,6 +31,9 @@ Este es el proyecto de una aplicacion web para la reserva de tickets.
 
 ![Tecnologias](./public/img/Tecnologias2.PNG)
 
+# Estructura Docker
+![EstructuraDocker](./public/img/EstructuraDocker.PNG)
+
 # Base de datos
 ![Base de datos](./public/img/BaseDeDatos.PNG)
 
@@ -107,4 +110,24 @@ Es un cliente HTTP basado en Promesas para Javascript, el cual puede ser utiliza
     - axios.get(url, params)
 
 ![AxiosPeticion](./public/img/axiosPeticion.PNG)
+
 Axios en cada petición nos devuelve una promesa, la cual debemos manipular haciendo uso de los métodos .then/.catch para capturar la respuesta y los errores respectivamente.
+
+## Tiempos
+
+### Sebastian Ayala
+- Frontend
+- Docker
+
+![tiemposAyala](./public/img/tiempos_ayala.PNG)
+
+### Jhorman Duvan Vacca
+- Backend
+
+![tiemposAyala](./public/img/tiempos_vacca.PNG)
+
+### Jose Luis Nova
+- Base de datos
+- Documentación
+
+![tiemposAyala](./public/img/tiempos_nova.PNG)
