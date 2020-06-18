@@ -32,7 +32,7 @@ Este es el proyecto de una aplicacion web para la reserva de tickets.
 ![Tecnologias](./public/img/Tecnologias2.PNG)
 
 # Estructura Docker
-![EstructuraDocker](./public/img/EstructuraDocker.PNG)
+![EstructuraDocker](./public/img/EstructuraDocker.png)
 
 # Base de datos
 ![Base de datos](./public/img/BaseDeDatos.PNG)
