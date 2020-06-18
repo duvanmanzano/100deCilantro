@@ -11,7 +11,7 @@
 - Frontend
 - Docker
 
-![tiemposAyala](./public/img/tiempos_ayala.PNG)
+![tiemposVacca](./public/img/ayala_tiempos.PNG)
 
 ### Jhorman Duvan Vacca
 - Backend
